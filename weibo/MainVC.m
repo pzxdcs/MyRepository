@@ -24,9 +24,9 @@
     if ([[Account currentAccount] isLogin]) {
         self.selectedIndex = 0;
     }else{
-        self.selectedIndex = 3;
+        self.selectedIndex =3;
     }
-    
+    [self setTabBar];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logout:) name:kLogoutNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(login:) name:kLoginNotification object:nil];
@@ -36,10 +36,33 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)setTabBar
+{
+    self.tabBar.tintColor = [UIColor orangeColor];
+    
+    //添加中间的➕
+    
+    CGFloat addBtnW = 50;
+    CGFloat addBtnH = 40;
+    
+    CGFloat addBtnX = self.tabBar.frame.size.width / 2 - addBtnW / 2;
+    CGFloat addBtnY = (self.tabBar.frame.size.height - addBtnH) / 2;
+    
+    UIButton *addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    addBtn.frame = CGRectMake(addBtnX, addBtnY, addBtnW, addBtnH);
+    [self.tabBar addSubview:addBtn];
+    addBtn.layer.cornerRadius = 4;
+    [addBtn setImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
+    addBtn.backgroundColor = [UIColor orangeColor];
+    [addBtn addTarget:self action:@selector(compose:) forControlEvents:UIControlEventTouchDown];
+}
+-(void)compose:(UIButton *)btn{
+    NSLog(@"zxc");                                   
+}
 
 -(void)logout:(NSNotification *)notification{
     //弹出登录界面
-    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"loginNav"];
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
     [self presentViewController:vc animated:YES completion:nil];
     
     self.selectedIndex = 3;

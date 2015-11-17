@@ -8,6 +8,8 @@
 
 #import "GuideViewController.h"
 #import "AppDelegate.h"
+#define w  [UIScreen mainScreen].bounds.size.width
+#define h  [UIScreen mainScreen].bounds.size.height
 
 @interface GuideViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -19,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.scrollView.contentSize = CGSizeMake(1500, 667);
+    self.scrollView.contentSize = CGSizeMake(4*w, h);
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
@@ -39,12 +41,12 @@
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     if (!decelerate) {
-        self.PageController.currentPage = self.scrollView.contentOffset.x/375;
+        self.PageController.currentPage = self.scrollView.contentOffset.x/w;
     }
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    self.PageController.currentPage = self.scrollView.contentOffset.x/375;
+    self.PageController.currentPage = self.scrollView.contentOffset.x/w;
 }
 
 /*
