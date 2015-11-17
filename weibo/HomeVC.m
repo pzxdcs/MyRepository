@@ -1,19 +1,18 @@
 //
-//  discoverVC.m
+//  HomeVC.m
 //  weibo
 //
-//  Created by qingyun on 15/11/12.
+//  Created by qingyun on 15/11/16.
 //  Copyright (c) 2015年 张雪城. All rights reserved.
 //
 
-#import "discoverVC.h"
+#import "HomeVC.h"
 
-@interface discoverVC ()
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *loginButtonItem;
+@interface HomeVC ()
 
 @end
 
-@implementation discoverVC
+@implementation HomeVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,17 +23,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    if ([[Account currentAccount]isLogin]) {
-        self.navigationItem.rightBarButtonItem = nil;
-    }else{
-        self.navigationItem.rightBarButtonItem = self.loginButtonItem;
-    }
-
-
-    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

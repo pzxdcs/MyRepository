@@ -63,6 +63,14 @@
             [[Account currentAccount] saveLoginInfo:responseObject];
             
             [self dismissViewControllerAnimated:YES completion:nil];
+            //清理缓存
+            //cookie管理器
+            NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+            NSArray *cookies = storage.cookies;
+            //清理所有的cookie
+            for (NSHTTPCookie *cookie in cookies) {
+                [storage deleteCookie:cookie];
+            }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"%@", error);
             NSLog(@"----%@", operation.responseString);
