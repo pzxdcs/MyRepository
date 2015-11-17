@@ -12,8 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
--(void)guideEnd;
-
+-(void)guideEnd;//引导结束，切换控制器
 
 @end
 

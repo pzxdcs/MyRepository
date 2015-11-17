@@ -9,16 +9,16 @@
 #import "UITableView+IndexWithIndexPath.h"
 
 @implementation UITableView (IndexWithIndexPath)
-- (NSInteger)indexWithIndexPath:(NSIndexPath *)indexPath{
+
+-(NSInteger)indexWithIndexPath:(NSIndexPath *)indexPath{
     NSInteger index = 0;
     //当前section之前的section一共有多少行
-    for (int i=0; i < indexPath.section; i++) {
+    for (int i= 0; i < indexPath.section; i++) {
         index += [self numberOfRowsInSection:i];
     }
-    //加上当前处于第几行
+    //加上当前处在第几行
     index += indexPath.row;
     return index;
-
 }
 
 @end

@@ -9,8 +9,10 @@
 #import "NSString+DocumentFilePath.h"
 
 @implementation NSString (DocumentFilePath)
+
 +(NSString *)filePathWithName:(NSString *)name{
     NSString *documents = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     return [documents stringByAppendingPathComponent:name];
 }
+
 @end

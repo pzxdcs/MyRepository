@@ -27,14 +27,12 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if ([[Account currentAccount]isLogin]) {
+    if ([[Account currentAccount] isLogin]) {
         self.navigationItem.rightBarButtonItem = nil;
     }else{
         self.navigationItem.rightBarButtonItem = self.loginButtonItem;
     }
-
-
-    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -54,7 +52,6 @@
     // Return the number of rows in the section.
     return 0;
 }
-
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];

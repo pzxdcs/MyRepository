@@ -62,15 +62,21 @@
             //保存登录信息到单例model中
             [[Account currentAccount] saveLoginInfo:responseObject];
             
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginNotification object:nil];
+            
             [self dismissViewControllerAnimated:YES completion:nil];
+            
             //清理缓存
-            //cookie管理器
+            //cookice管理器
             NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
             NSArray *cookies = storage.cookies;
-            //清理所有的cookie
+            
+            //清理掉所有的cookie
             for (NSHTTPCookie *cookie in cookies) {
                 [storage deleteCookie:cookie];
             }
+            
+            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"%@", error);
             NSLog(@"----%@", operation.responseString);
@@ -82,15 +88,5 @@
     return YES;
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

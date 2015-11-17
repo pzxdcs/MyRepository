@@ -9,9 +9,12 @@
 #ifndef weibo_Common_h
 #define weibo_Common_h
 
-#define kAPPkey @ "4170202540"
+#define kAPPkey @"4170202540"
 #define kAppSecret @"e72447c01c0386a328afbbe4bed5afc7"
 #define kRedirectURI @"https://api.weibo.com/oauth2/default.html"
+
+//notification name
+
 #define kLogoutNotification @"kLogoutNotification"
 #define kLoginNotification @"kLoginNotification"
 

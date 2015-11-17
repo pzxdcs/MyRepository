@@ -12,6 +12,7 @@
 #import "Common.h"
 
 @interface SetingVC ()
+
 @property (nonatomic, strong)NSArray *cellTitle;
 
 @end
@@ -20,7 +21,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //指定数据源
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //指定现实的数据源
     if ([[Account currentAccount] isLogin]) {
         
         self.cellTitle = @[@[@"账号管理"],
@@ -30,13 +38,9 @@
     }else{
         self.cellTitle = @[@[@"通用设置"], @[@"关于微博"]];
     }
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -46,15 +50,13 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return self.cellTitle.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.cellTitle[section]count];
+    return [self.cellTitle[section] count];
 }
 
 
@@ -67,7 +69,8 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     NSInteger index = [tableView indexWithIndexPath:indexPath];
     switch (index) {
         case 7:
@@ -76,15 +79,15 @@
             UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:@"确认退出登录" preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"确认退出" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 //确认退出
-                //1:清除登录信息
-                [[Account currentAccount]logOut];
+                //1.清除登录信息
+                [[Account currentAccount] logOut];
+                //2.弹出登录界面
                 
-                //2:弹出登录界面
+                //3.切换tabbarVC的选择控制器
+                [[NSNotificationCenter defaultCenter] postNotificationName:kLogoutNotification object:nil];
+                //4.返回到之前的页面
+                [self.navigationController popViewControllerAnimated:YES];
                 
-                //3:切换tabbarVC的选择控制器
-                [[NSNotificationCenter defaultCenter]postNotificationName:kLogoutNotification object:nil];
-                //4:返回到之前的页面
-                [self.navigationController popToRootViewControllerAnimated:YES];
             }];
             [alertVC addAction:action];
             [self presentViewController:alertVC animated:YES completion:nil];
@@ -95,7 +98,6 @@
             break;
     }
 }
-
 
 /*
 // Override to support conditional editing of the table view.

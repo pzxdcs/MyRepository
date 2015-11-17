@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (DocumentFilePath)
+
 //根据文件名字返回文件路径
 +(NSString *)filePathWithName:(NSString *)name;
 

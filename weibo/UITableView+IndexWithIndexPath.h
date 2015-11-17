@@ -11,6 +11,6 @@
 @interface UITableView (IndexWithIndexPath)
 
 //根据indexPath计算出cell在table中的index
-- (NSInteger)indexWithIndexPath:(NSIndexPath *)indexPath;
+-(NSInteger)indexWithIndexPath:(NSIndexPath *)indexPath;
 
 @end
