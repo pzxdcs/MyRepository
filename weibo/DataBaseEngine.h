@@ -9,5 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface DataBaseEngine : NSObject
+//将网络请求的所有微博字典保存
++(void)saveStatus2DataBase:(NSArray *)status;
+
+//查询微博记录
++(NSArray *)statusFromDB;
 
 @end

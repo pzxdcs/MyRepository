@@ -12,6 +12,7 @@
 #import "Account.h"
 #import "StatusTableViewCell.h"
 #import "StatusModel.h"
+#import "DataBaseEngine.h"
 
 @interface HomeVC ()
 
@@ -71,6 +72,8 @@
         
         //更新数据源后刷新UI
         [self.tableView reloadData];
+        //保存到数据库中
+        [DataBaseEngine saveStatus2DataBase:statusesInfo];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);
     }];
