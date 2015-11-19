@@ -29,6 +29,7 @@
 		CC5E42111BF4CD5C0079C0A3 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5E42061BF4CD5C0079C0A3 /* AFURLRequestSerialization.m */; };
 		CC5E42121BF4CD5C0079C0A3 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5E42081BF4CD5C0079C0A3 /* AFURLResponseSerialization.m */; };
 		CC5E42131BF4CD5C0079C0A3 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5E420A1BF4CD5C0079C0A3 /* AFURLSessionManager.m */; };
+		CC750C6E1BFDF98B007B5940 /* status.db in Resources */ = {isa = PBXBuildFile; fileRef = CC750C6D1BFDF98B007B5940 /* status.db */; };
 		CC7602FC1BF9FA230053E406 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7602F21BF9FA230053E406 /* FMDatabase.m */; };
 		CC7602FD1BF9FA230053E406 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7602F41BF9FA230053E406 /* FMDatabaseAdditions.m */; };
 		CC7602FE1BF9FA230053E406 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7602F61BF9FA230053E406 /* FMDatabasePool.m */; };
@@ -116,6 +117,7 @@
 		CC5E42081BF4CD5C0079C0A3 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		CC5E42091BF4CD5C0079C0A3 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		CC5E420A1BF4CD5C0079C0A3 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		CC750C6D1BFDF98B007B5940 /* status.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = status.db; sourceTree = "<group>"; };
 		CC7602F11BF9FA230053E406 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		CC7602F21BF9FA230053E406 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		CC7602F31BF9FA230053E406 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 		CCEE70831BF0838500DFD65D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CC750C6D1BFDF98B007B5940 /* status.db */,
 				CC5E41E61BF4B6020079C0A3 /* Account.h */,
 				CC5E41E71BF4B6020079C0A3 /* Account.m */,
 				CC76033F1BFA0A3B0053E406 /* StatusModel.h */,
@@ -523,6 +526,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC2C97051BF0314D004DF239 /* Main.storyboard in Resources */,
+				CC750C6E1BFDF98B007B5940 /* status.db in Resources */,
 				CC2C970A1BF0314D004DF239 /* LaunchScreen.xib in Resources */,
 				CC2C97071BF0314D004DF239 /* Images.xcassets in Resources */,
 			);

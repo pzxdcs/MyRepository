@@ -36,5 +36,48 @@
     }
     return self;
 }
+//重写get方法
+-(NSString *)createdString{
+    //1.计算出时间差(微博创建时间和当前时间)
+    NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:self.created_at];
+    //2.根据时间差，计算出显示格式
+    if(interval < 60){
+        return @"刚刚";
+    }else if (interval < 60 * 60){
+        //处于分钟数量级
+        return [NSString stringWithFormat:@"%d 分钟前", (int)interval/60];
+    }else if (interval < 24*60*60){
+        //处于小时数量级
+        return [NSString stringWithFormat:@"%d 小时前", (int)interval/(60*60)];
+    }else if (interval < 24*60*60*30){
+        //处于天的数量级
+        return [NSString stringWithFormat:@"%d 天前", (int)interval/(60*60*24)];
+    }else{
+        return [NSDateFormatter localizedStringFromDate:self.created_at dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
+    }
+}
+
+-(NSString *)sourceWithString:(NSString *)string{
+    //<a href=\"http://app.weibo.com/t/feed/310OQS\" rel=\"nofollow\">\U7cbe\U5f69\U5fae\U5ba2</a>
+    
+    //正则表达式规则
+    NSString *regExStr = @">.*<";
+    //根据规则生成正则表达式
+    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regExStr options:0 error:nil];
+    //使用正则表达式，在字符串中查询符合条件的结果
+    NSTextCheckingResult *result = [expression firstMatchInString:string options:0 range:NSMakeRange(0, string.length)];
+    if (result) {
+        NSRange range = result.range;
+        NSString *rsultString = [string substringWithRange:NSMakeRange(range.location + 1, range.length - 2)];
+        return rsultString;
+        
+    }
+    
+    return nil;
+    
+    
+}
+
+
 
 @end

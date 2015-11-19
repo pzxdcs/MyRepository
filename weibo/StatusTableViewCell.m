@@ -43,7 +43,7 @@
     //    self.source.text = info[@"source"];
     //    self.content.text = info[@"text"];
     self.name.text = info.user.name;
-    //    self.time.text
+    self.time.text = info.createdString;
     self.source.text = info.source;
     self.content.text = info.text;
 }

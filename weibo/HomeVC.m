@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.statuses = [DataBaseEngine statusFromDB];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -103,6 +103,16 @@
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    //计算cell高度
+    StatusModel *status = self.statuses[indexPath.row];
+    NSString *text = status.text;
+    CGSize size = CGSizeMake([[UIScreen mainScreen]bounds].size.width-16, MAXFLOAT);
+    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:17]
+                          };
+    CGRect band = [text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil];
+    return 61 + band.size.height +8 + 1;
+}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
