@@ -104,14 +104,18 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //计算cell高度
-    StatusModel *status = self.statuses[indexPath.row];
-    NSString *text = status.text;
-    CGSize size = CGSizeMake([[UIScreen mainScreen]bounds].size.width-16, MAXFLOAT);
-    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:17]
-                          };
-    CGRect band = [text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil];
-    return 61 + band.size.height +8 + 1;
+    StatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"statusesCell"];
+    [cell bandingStatusModel:self.statuses[indexPath.row]];
+    //设置正文显示的宽度
+    cell.content.preferredMaxLayoutWidth = [[UIScreen mainScreen] bounds].size.width - 16;
+    cell.reTwitterContent.preferredMaxLayoutWidth =
+    [[UIScreen mainScreen] bounds].size.width - 16;
+    //转发微博正文
+    CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height + 1;
+
+  
+    
 }
 
 /*

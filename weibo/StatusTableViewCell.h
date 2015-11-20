@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class StatusModel;
 
 @interface StatusTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
@@ -15,6 +16,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *time;
 @property (weak, nonatomic) IBOutlet UILabel *source;
 
--(void)bandingStatusModel:(NSDictionary *)info;
+@property (weak, nonatomic) IBOutlet UIView *contentImageSuperView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ContentImgHeightConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *reTwitterContent;
+@property (weak, nonatomic) IBOutlet UIView *reTwitterImgSuperView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *reTwiImgSupHeightConstaint;
 
+-(void)bandingStatusModel:(NSDictionary *)info;
++(CGFloat)cellHeightForStatus:(StatusModel *)status;
 @end

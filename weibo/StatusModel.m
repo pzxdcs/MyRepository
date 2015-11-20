@@ -21,7 +21,7 @@
         self.created_at = [formatter statusDateWithString:created];
         
         self.text = status[kStatusText];
-        self.source = status[kStatusSource];
+        self.source = [self sourceWithString:status[kStatusSource]];
         self.user = [[UserModel alloc] initWithUserInfo:status[kStatusUserInfo]];
         NSDictionary *retweeted = status[kStatusRetweetStatus];
         //根据是否有字典，来初始化相对应的model
@@ -58,7 +58,6 @@
 }
 
 -(NSString *)sourceWithString:(NSString *)string{
-    //<a href=\"http://app.weibo.com/t/feed/310OQS\" rel=\"nofollow\">\U7cbe\U5f69\U5fae\U5ba2</a>
     
     //正则表达式规则
     NSString *regExStr = @">.*<";

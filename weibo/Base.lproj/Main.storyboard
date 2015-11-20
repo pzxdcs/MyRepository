@@ -380,7 +380,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="statusesCell" rowHeight="91" id="LJi-Pd-Rym" customClass="StatusTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="statusesCell" rowHeight="111" id="LJi-Pd-Rym" customClass="StatusTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LJi-Pd-Rym" id="108-a9-5uz">
@@ -418,28 +418,60 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sc0-9i-MT0">
+                                            <rect key="frame" x="8" y="82" width="304" height="0.0"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" id="hWO-6y-e0k"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4M-Md-AqE">
+                                            <rect key="frame" x="8" y="82" width="304" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TpZ-bh-BYj">
+                                            <rect key="frame" x="8" y="103" width="304" height="0.0"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" id="Sqs-NM-ebk"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="d78-jl-L1s" firstAttribute="top" secondItem="108-a9-5uz" secondAttribute="top" constant="8" id="1dA-DM-GdO"/>
                                         <constraint firstItem="Mt1-jM-Tyi" firstAttribute="leading" secondItem="bbg-Yr-pxb" secondAttribute="trailing" constant="8" id="4SB-So-PEV"/>
+                                        <constraint firstAttribute="trailing" secondItem="p4M-Md-AqE" secondAttribute="trailing" constant="8" id="7dK-CB-I8v"/>
+                                        <constraint firstItem="TpZ-bh-BYj" firstAttribute="leading" secondItem="108-a9-5uz" secondAttribute="leading" constant="8" id="CGS-Ga-bP5"/>
                                         <constraint firstItem="bbg-Yr-pxb" firstAttribute="leading" secondItem="d78-jl-L1s" secondAttribute="trailing" constant="8" id="CJ1-mq-m8B"/>
                                         <constraint firstItem="d78-jl-L1s" firstAttribute="leading" secondItem="108-a9-5uz" secondAttribute="leading" constant="8" id="ClH-QV-a8s"/>
+                                        <constraint firstItem="sc0-9i-MT0" firstAttribute="leading" secondItem="108-a9-5uz" secondAttribute="leading" constant="8" id="D8t-kL-Le1"/>
                                         <constraint firstItem="YuM-BE-T9W" firstAttribute="top" secondItem="Mt1-jM-Tyi" secondAttribute="bottom" constant="8" id="Eoq-Yl-zu7"/>
+                                        <constraint firstItem="p4M-Md-AqE" firstAttribute="leading" secondItem="108-a9-5uz" secondAttribute="leading" constant="8" id="K4H-Vx-0Eu"/>
                                         <constraint firstItem="Mt1-jM-Tyi" firstAttribute="top" secondItem="108-a9-5uz" secondAttribute="top" constant="32" id="Mem-Rn-haO"/>
+                                        <constraint firstItem="sc0-9i-MT0" firstAttribute="top" secondItem="YuM-BE-T9W" secondAttribute="bottom" id="Nkw-nt-QWq"/>
                                         <constraint firstItem="3LA-Wf-38x" firstAttribute="top" secondItem="108-a9-5uz" secondAttribute="top" constant="8" id="WpL-qE-AA5"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3LA-Wf-38x" secondAttribute="trailing" constant="8" id="Zsn-o6-thN"/>
                                         <constraint firstItem="YuM-BE-T9W" firstAttribute="leading" secondItem="108-a9-5uz" secondAttribute="leading" constant="8" id="aks-xn-F8X"/>
+                                        <constraint firstAttribute="trailing" secondItem="sc0-9i-MT0" secondAttribute="trailing" constant="8" id="beu-ym-4aL"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Mt1-jM-Tyi" secondAttribute="trailing" constant="8" id="fIo-Ha-Oe6"/>
                                         <constraint firstAttribute="trailing" secondItem="YuM-BE-T9W" secondAttribute="trailing" constant="8" id="hQH-vG-N2S"/>
                                         <constraint firstItem="bbg-Yr-pxb" firstAttribute="top" secondItem="3LA-Wf-38x" secondAttribute="bottom" constant="3" id="hgu-zx-c8T"/>
+                                        <constraint firstItem="TpZ-bh-BYj" firstAttribute="top" secondItem="p4M-Md-AqE" secondAttribute="bottom" id="lAd-kG-bAi"/>
+                                        <constraint firstAttribute="bottom" secondItem="TpZ-bh-BYj" secondAttribute="bottom" constant="7" id="p4U-YM-AFj"/>
+                                        <constraint firstAttribute="trailing" secondItem="TpZ-bh-BYj" secondAttribute="trailing" constant="8" id="r6s-Cf-sJj"/>
+                                        <constraint firstItem="p4M-Md-AqE" firstAttribute="top" secondItem="sc0-9i-MT0" secondAttribute="bottom" id="xeE-jU-4z0"/>
                                         <constraint firstItem="3LA-Wf-38x" firstAttribute="leading" secondItem="d78-jl-L1s" secondAttribute="trailing" constant="8" id="yEJ-Hj-0Vr"/>
-                                        <constraint firstAttribute="bottom" secondItem="YuM-BE-T9W" secondAttribute="bottom" constant="8" id="zde-JW-eVt"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="ContentImgHeightConstraint" destination="hWO-6y-e0k" id="0wm-Hp-mVy"/>
                                     <outlet property="content" destination="YuM-BE-T9W" id="jD3-mg-9aE"/>
+                                    <outlet property="contentImageSuperView" destination="sc0-9i-MT0" id="v54-t9-HTb"/>
                                     <outlet property="icon" destination="d78-jl-L1s" id="xCt-Ef-FYF"/>
                                     <outlet property="name" destination="3LA-Wf-38x" id="RvJ-Vf-nIg"/>
+                                    <outlet property="reTwitterContent" destination="p4M-Md-AqE" id="Gi3-iZ-twE"/>
                                     <outlet property="source" destination="Mt1-jM-Tyi" id="dTi-YP-X3g"/>
                                     <outlet property="time" destination="bbg-Yr-pxb" id="Mhl-o6-i09"/>
                                 </connections>
@@ -480,10 +512,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="helper_authority_miaopai_guide" width="251" height="321"/>
+        <image name="helper_authority_miaopai_guide" width="250" height="318"/>
         <image name="helper_authority_notice_guide" width="252" height="356"/>
         <image name="helper_authority_place_guide" width="252" height="356"/>
-        <image name="helper_authority_weibocamera_guide" width="252" height="321"/>
+        <image name="helper_authority_weibocamera_guide" width="250" height="318"/>
         <image name="tabbar_discover" width="30" height="30"/>
         <image name="tabbar_home" width="30" height="30"/>
         <image name="tabbar_message_center" width="30" height="30"/>
