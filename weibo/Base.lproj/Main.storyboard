@@ -425,7 +425,7 @@
                                                 <constraint firstAttribute="height" id="hWO-6y-e0k"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4M-Md-AqE">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4M-Md-AqE">
                                             <rect key="frame" x="8" y="82" width="304" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -447,7 +447,7 @@
                                         <constraint firstItem="bbg-Yr-pxb" firstAttribute="leading" secondItem="d78-jl-L1s" secondAttribute="trailing" constant="8" id="CJ1-mq-m8B"/>
                                         <constraint firstItem="d78-jl-L1s" firstAttribute="leading" secondItem="108-a9-5uz" secondAttribute="leading" constant="8" id="ClH-QV-a8s"/>
                                         <constraint firstItem="sc0-9i-MT0" firstAttribute="leading" secondItem="108-a9-5uz" secondAttribute="leading" constant="8" id="D8t-kL-Le1"/>
-                                        <constraint firstItem="YuM-BE-T9W" firstAttribute="top" secondItem="Mt1-jM-Tyi" secondAttribute="bottom" constant="8" id="Eoq-Yl-zu7"/>
+                                        <constraint firstItem="YuM-BE-T9W" firstAttribute="top" secondItem="bbg-Yr-pxb" secondAttribute="bottom" constant="8" id="F3x-eV-W21"/>
                                         <constraint firstItem="p4M-Md-AqE" firstAttribute="leading" secondItem="108-a9-5uz" secondAttribute="leading" constant="8" id="K4H-Vx-0Eu"/>
                                         <constraint firstItem="Mt1-jM-Tyi" firstAttribute="top" secondItem="108-a9-5uz" secondAttribute="top" constant="32" id="Mem-Rn-haO"/>
                                         <constraint firstItem="sc0-9i-MT0" firstAttribute="top" secondItem="YuM-BE-T9W" secondAttribute="bottom" id="Nkw-nt-QWq"/>
@@ -471,7 +471,9 @@
                                     <outlet property="contentImageSuperView" destination="sc0-9i-MT0" id="v54-t9-HTb"/>
                                     <outlet property="icon" destination="d78-jl-L1s" id="xCt-Ef-FYF"/>
                                     <outlet property="name" destination="3LA-Wf-38x" id="RvJ-Vf-nIg"/>
+                                    <outlet property="reTwiImgSupHeightConstaint" destination="Sqs-NM-ebk" id="IyN-f8-ksf"/>
                                     <outlet property="reTwitterContent" destination="p4M-Md-AqE" id="Gi3-iZ-twE"/>
+                                    <outlet property="reTwitterImgSuperView" destination="TpZ-bh-BYj" id="MiV-N4-GJV"/>
                                     <outlet property="source" destination="Mt1-jM-Tyi" id="dTi-YP-X3g"/>
                                     <outlet property="time" destination="bbg-Yr-pxb" id="Mhl-o6-i09"/>
                                 </connections>

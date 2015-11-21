@@ -11,6 +11,7 @@
 		CC026A461BFEBE2200423AE8 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC026A401BFEBE2200423AE8 /* SDBrowserImageView.m */; };
 		CC026A471BFEBE2200423AE8 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CC026A421BFEBE2200423AE8 /* SDPhotoBrowser.m */; };
 		CC026A481BFEBE2200423AE8 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC026A451BFEBE2200423AE8 /* SDWaitingView.m */; };
+		CC026A4D1BFF592300423AE8 /* UINavigationController+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = CC026A4C1BFF592300423AE8 /* UINavigationController+notification.m */; };
 		CC2C96FC1BF0314D004DF239 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2C96FB1BF0314D004DF239 /* main.m */; };
 		CC2C96FF1BF0314D004DF239 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2C96FE1BF0314D004DF239 /* AppDelegate.m */; };
 		CC2C97051BF0314D004DF239 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC2C97031BF0314D004DF239 /* Main.storyboard */; };
@@ -85,6 +86,8 @@
 		CC026A431BFEBE2200423AE8 /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
 		CC026A441BFEBE2200423AE8 /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
 		CC026A451BFEBE2200423AE8 /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
+		CC026A4B1BFF592300423AE8 /* UINavigationController+notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+notification.h"; sourceTree = "<group>"; };
+		CC026A4C1BFF592300423AE8 /* UINavigationController+notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+notification.m"; sourceTree = "<group>"; };
 		CC2C96F61BF0314D004DF239 /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC2C96FA1BF0314D004DF239 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC2C96FB1BF0314D004DF239 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -471,6 +474,8 @@
 				CCE8AF1A1BFABE2600C08FA2 /* NSDateFormatter+StatusDate.m */,
 				CC026A3B1BFEBD7600423AE8 /* NSString+TextHeight.h */,
 				CC026A3C1BFEBD7600423AE8 /* NSString+TextHeight.m */,
+				CC026A4B1BFF592300423AE8 /* UINavigationController+notification.h */,
+				CC026A4C1BFF592300423AE8 /* UINavigationController+notification.m */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -589,6 +594,7 @@
 				CC7603281BF9FA4C0053E406 /* SDWebImageDownloader.m in Sources */,
 				CC5E41EE1BF4C3110079C0A3 /* UITableView+IndexWithIndexPath.m in Sources */,
 				CC7603411BFA0A3B0053E406 /* StatusModel.m in Sources */,
+				CC026A4D1BFF592300423AE8 /* UINavigationController+notification.m in Sources */,
 				CC7603261BF9FA4C0053E406 /* SDWebImageCompat.m in Sources */,
 				CC7602FE1BF9FA230053E406 /* FMDatabasePool.m in Sources */,
 				CC7603001BF9FA230053E406 /* FMResultSet.m in Sources */,

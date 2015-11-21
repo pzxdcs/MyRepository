@@ -15,6 +15,7 @@
 -(instancetype)initWithStatusInfo:(NSDictionary *)status{
     self = [super init];
     if (self) {
+        self.statusId = status[kStatusID];
         NSString *created = status[kStatusCreateTime];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         //将字符串按照格式转化为时间

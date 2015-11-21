@@ -13,26 +13,33 @@
 #import "StatusTableViewCell.h"
 #import "StatusModel.h"
 #import "DataBaseEngine.h"
+#import "UINavigationController+notification.h"
 
 @interface HomeVC ()
 
 @property (nonatomic, strong)NSArray *statuses;//微博数据
-
+@property (nonatomic)BOOL isLoadMore;
 @end
 
 @implementation HomeVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tabBarController.tabBar.backgroundColor =  [UIColor whiteColor];
+    self.navigationController.navigationBar.translucent = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.statuses = [DataBaseEngine statusFromDB];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.isLoadMore = YES;
+    //下拉刷新
+    UIRefreshControl *control = [[UIRefreshControl alloc]init];
+    self.refreshControl = control;
+    control.tintColor = [UIColor lightGrayColor];
+    NSDictionary *attibutes = @{NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName:[UIColor lightGrayColor]};
+    NSAttributedString *attibuteString = [[NSAttributedString alloc]initWithString:@"下拉加载更多" attributes:attibutes];
+    control.attributedTitle = attibuteString;
+    [control addTarget:self action:@selector(loadNew:) forControlEvents:UIControlEventValueChanged];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -80,6 +87,102 @@
     
     
 }
+-(void)loadNew:(UIRefreshControl*)sender{
+    //更改refresh的状态
+    UIRefreshControl *control = sender;
+    NSDictionary *attiributes = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
+    NSAttributedString *attStr = [[NSAttributedString alloc] initWithString:@"正在请求最新的数据" attributes:attiributes];
+    control.attributedTitle = attStr;
+    
+    
+    //请求更新的数据
+    //注意点：以路径的方式追加
+    
+    
+    NSString *urlString = [kBaseUrl stringByAppendingPathComponent:@"2/statuses/home_timeline.json"];
+    
+    NSMutableDictionary *params = [[Account currentAccount] requestParameters];
+      NSLog(@"------%@-------",[self.statuses.firstObject statusId]);
+    [params setObject:[self.statuses.firstObject statusId] forKey:@"since_id"];
+  
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlString parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //NSLog(@"%@", responseObject);
+        //        更改数据源
+        NSArray *statusInfo = responseObject[@"statuses"];
+        NSMutableArray *result = [NSMutableArray array];
+        [statusInfo enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            StatusModel *status = [[StatusModel alloc] initWithStatusInfo:obj];
+            [result addObject:status];
+        }];
+        //老的追加到新的后面
+        [result addObjectsFromArray:self.statuses];
+        //result作为最新的数据源
+        self.statuses = result;
+        
+        //刷新ui
+        [self.tableView reloadData];
+        
+        [self.refreshControl endRefreshing];
+        
+        UIRefreshControl *control = sender;
+        NSDictionary *attiributes = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
+        NSAttributedString *attStr = [[NSAttributedString alloc] initWithString:@"下拉加载更新数据" attributes:attiributes];
+        control.attributedTitle = attStr;
+        
+        NSString *noticationString;
+        if (statusInfo.count == 0) {
+            noticationString = @"没有更新的微博了";
+        }else{
+            //给用户提示加载了多少数据
+            noticationString = [NSString stringWithFormat:@"更新了%ld条微博", statusInfo.count];
+        }
+        [self.navigationController showNotification:noticationString];
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.refreshControl endRefreshing];
+        UIRefreshControl *control = sender;
+        NSDictionary *attiributes = @{NSFontAttributeName:[UIFont systemFontOfSize:15]};
+        NSAttributedString *attStr = [[NSAttributedString alloc] initWithString:@"下拉请求更新的数据" attributes:attiributes];
+        control.attributedTitle = attStr;
+    }];
+    
+    
+    
+    //刷新UI
+    //停止刷新
+}
+
+-(void)reloadMore{
+    if (!self.isLoadMore) {
+        return;
+    }
+    //请求数据
+    NSString *urlStr = [kBaseUrl stringByAppendingPathComponent:@"2/statuses/home_timeline.json"];
+    NSMutableDictionary *params = [[Account currentAccount]requestParameters];
+    [params setObject:[self.statuses.lastObject statusId] forKey:@"max_id"];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSArray *statusInfo = responseObject[@"statuses"];
+        if (statusInfo.count<20) {
+            self.isLoadMore = NO;
+        }
+        NSMutableArray *result = [NSMutableArray array];
+        [result addObjectsFromArray:self.statuses];
+        [statusInfo enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            StatusModel *status = [[StatusModel alloc]initWithStatusInfo:obj];
+            [result addObject:status];
+        }];
+        self.statuses = result;
+        [self.tableView reloadData];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+    
+}
 
 #pragma mark - Table view data source
 
@@ -99,23 +202,28 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     StatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"statusesCell" forIndexPath:indexPath];
     
-    [cell bandingStatusModel:self.statuses[indexPath.row]];
+    [cell bindingStatusModel:self.statuses[indexPath.row]];
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    StatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"statusesCell"];
-    [cell bandingStatusModel:self.statuses[indexPath.row]];
-    //设置正文显示的宽度
-    cell.content.preferredMaxLayoutWidth = [[UIScreen mainScreen] bounds].size.width - 16;
-    cell.reTwitterContent.preferredMaxLayoutWidth =
-    [[UIScreen mainScreen] bounds].size.width - 16;
-    //转发微博正文
-    CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    return size.height + 1;
+//    StatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"statusesCell"];
+//    [cell bandingStatusModel:self.statuses[indexPath.row]];
+//    //设置正文显示的宽度
+//    cell.content.preferredMaxLayoutWidth = [[UIScreen mainScreen] bounds].size.width - 16;
+//    cell.reTwitterContent.preferredMaxLayoutWidth =
+//    [[UIScreen mainScreen] bounds].size.width - 16;
+//    //转发微博正文
+//    CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+//    return size.height + 1;
 
-  
+    return [StatusTableViewCell cellHeightForStatus:self.statuses[indexPath.row]];
     
+}
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == self.statuses.count-1) {
+        [self reloadMore];
+    }
 }
 
 /*

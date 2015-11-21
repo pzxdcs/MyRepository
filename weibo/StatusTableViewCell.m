@@ -15,7 +15,7 @@
 #import "SDPhotoBrowser.h"
 #import "UIButton+WebCache.h"
 
-#define kImageWidth 90
+#define kImageWidth  90
 #define kImageHeight 90
 #define kImageEdge 5
 #define kImageCount 3
@@ -59,6 +59,9 @@
 +(CGFloat)imageContentViewHeightForPics:(NSArray *)pics{
     //根据图片的张数，计算view显示需要的高度
     //向上取整
+    if (pics.count == 0) {
+        return 0;
+    }
     NSInteger line = ceil(pics.count/(CGFloat)kImageCount);
     NSInteger height = line*kImageHeight + (line - 1)*kImageEdge;
     
@@ -71,7 +74,7 @@
     // Initialization code
 }
 
--(void)bandingStatusModel:(StatusModel *)info{
+-(void)bindingStatusModel:(StatusModel *)info{
     //    NSDictionary *userInfo = info[@"user"];
     //    NSString *imageUrl = userInfo[@"profile_image_url"];
     

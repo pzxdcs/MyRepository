@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIView *reTwitterImgSuperView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *reTwiImgSupHeightConstaint;
 
--(void)bandingStatusModel:(NSDictionary *)info;
+
+
+-(void)bindingStatusModel:(NSDictionary *)info;
 +(CGFloat)cellHeightForStatus:(StatusModel *)status;
 @end
