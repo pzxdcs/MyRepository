@@ -14,6 +14,7 @@
 #import "StatusModel.h"
 #import "DataBaseEngine.h"
 #import "UINavigationController+notification.h"
+#import "StatusSectionFooterView.h"
 
 @interface HomeVC ()
 
@@ -30,6 +31,8 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.statuses = [DataBaseEngine statusFromDB];
     self.isLoadMore = YES;
+    UINib *nib = [UINib nibWithNibName:@"StatusSectionFooterView" bundle:[NSBundle mainBundle]];
+    [self.tableView registerNib:nib forHeaderFooterViewReuseIdentifier:@"StatusSectionFooterView"];
     //下拉刷新
     UIRefreshControl *control = [[UIRefreshControl alloc]init];
     self.refreshControl = control;
@@ -183,11 +186,20 @@
     }];
     
 }
+-(void)reTwiter:(UIButton *)sender{
+    
+}
+-(void)commit:(UIButton *)sender{
+    
+}
+-(void)attibute:(UIButton *)sender{
+    
+}
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.statuses.count;
     // Return the number of sections.
     
 }
@@ -195,14 +207,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     // Return the number of rows in the section.
-    return self.statuses.count;
+    return 1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     StatusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"statusesCell" forIndexPath:indexPath];
     
-    [cell bindingStatusModel:self.statuses[indexPath.row]];
+    [cell bindingStatusModel:self.statuses[indexPath.section]];
     return cell;
 }
 
@@ -217,13 +229,32 @@
 //    CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
 //    return size.height + 1;
 
-    return [StatusTableViewCell cellHeightForStatus:self.statuses[indexPath.row]];
+    return [StatusTableViewCell cellHeightForStatus:self.statuses[indexPath.section]];
     
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == self.statuses.count-1) {
         [self reloadMore];
     }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 25.f;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 0.1f;
+    }
+    return 20.f;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    StatusSectionFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"StatusSectionFooterView"];
+    [footerView bindingStatus:self.statuses[section]];
+    [footerView.reTwiter addTarget:self action:@selector(reTwiter:) forControlEvents:UIControlEventTouchUpInside];
+    [footerView.comment addTarget:self action:@selector(commit:) forControlEvents:UIControlEventTouchUpInside];
+    [footerView.assist addTarget:self action:@selector(attibute:) forControlEvents:UIControlEventTouchUpInside];
+    return footerView;
 }
 
 /*

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="oal-sd-O6L" customClass="StatusSectionFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="427" height="20"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0q-7v-Fbg">
+                    <rect key="frame" x="189" y="-1" width="50" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="TUk-wF-Z8z"/>
+                        <constraint firstAttribute="height" constant="22" id="bso-g8-ae1"/>
+                    </constraints>
+                    <state key="normal" title="2" image="statusdetail_icon_comment">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSO-uS-wZu">
+                    <rect key="frame" x="319" y="-1" width="50" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="KOh-9e-jBU"/>
+                        <constraint firstAttribute="height" constant="22" id="rMt-Jz-vGp"/>
+                    </constraints>
+                    <state key="normal" title="3" image="statusdetail_icon_like">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5At-rU-pNA">
+                    <rect key="frame" x="59" y="-1" width="50" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="Of2-M8-MZ5"/>
+                        <constraint firstAttribute="width" constant="50" id="p5n-mL-CHY"/>
+                    </constraints>
+                    <state key="normal" title="1" image="statusdetail_icon_retweet">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="N0q-7v-Fbg" secondAttribute="centerX" id="EHJ-WV-e07"/>
+                <constraint firstAttribute="centerY" secondItem="N0q-7v-Fbg" secondAttribute="centerY" id="Ktc-lF-zI7"/>
+                <constraint firstItem="XSO-uS-wZu" firstAttribute="leading" secondItem="N0q-7v-Fbg" secondAttribute="trailing" constant="80" id="RPu-Z8-TdZ"/>
+                <constraint firstAttribute="centerY" secondItem="XSO-uS-wZu" secondAttribute="centerY" id="WRD-PQ-KsH"/>
+                <constraint firstAttribute="centerY" secondItem="5At-rU-pNA" secondAttribute="centerY" id="jmr-76-b5H"/>
+                <constraint firstItem="N0q-7v-Fbg" firstAttribute="leading" secondItem="5At-rU-pNA" secondAttribute="trailing" constant="80" id="k6n-pp-3UP"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="assist" destination="XSO-uS-wZu" id="ZOs-He-WHf"/>
+                <outlet property="comment" destination="N0q-7v-Fbg" id="BW4-r8-w85"/>
+                <outlet property="reTwiter" destination="5At-rU-pNA" id="aUg-Sh-dAz"/>
+            </connections>
+            <point key="canvasLocation" x="-12.5" y="77"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="statusdetail_icon_comment" width="14" height="14"/>
+        <image name="statusdetail_icon_like" width="14" height="14"/>
+        <image name="statusdetail_icon_retweet" width="14" height="14"/>
+    </resources>
+</document>

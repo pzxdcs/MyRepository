@@ -60,6 +60,9 @@
 		CC7603371BFA00ED0053E406 /* StatusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7603361BFA00ED0053E406 /* StatusTableViewCell.m */; };
 		CC76033E1BFA02850053E406 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC76033D1BFA02850053E406 /* HomeVC.m */; };
 		CC7603411BFA0A3B0053E406 /* StatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7603401BFA0A3B0053E406 /* StatusModel.m */; };
+		CC9AC4431C031A5000D525FA /* StatusSectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC9AC4421C031A5000D525FA /* StatusSectionFooterView.xib */; };
+		CC9AC4461C032EAC00D525FA /* StatusSectionFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9AC4451C032EAC00D525FA /* StatusSectionFooterView.m */; };
+		CC9AC4491C03439800D525FA /* StatusDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9AC4481C03439800D525FA /* StatusDetailVC.m */; };
 		CCE8AF1B1BFABE2600C08FA2 /* NSDateFormatter+StatusDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE8AF1A1BFABE2600C08FA2 /* NSDateFormatter+StatusDate.m */; };
 		CCE8AF1E1BFAC0A700C08FA2 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE8AF1D1BFAC0A700C08FA2 /* UserModel.m */; };
 		CCE8AF211BFAC0E100C08FA2 /* DataBaseEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE8AF201BFAC0E100C08FA2 /* DataBaseEngine.m */; };
@@ -185,6 +188,11 @@
 		CC76033D1BFA02850053E406 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 		CC76033F1BFA0A3B0053E406 /* StatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusModel.h; sourceTree = "<group>"; };
 		CC7603401BFA0A3B0053E406 /* StatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusModel.m; sourceTree = "<group>"; };
+		CC9AC4421C031A5000D525FA /* StatusSectionFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusSectionFooterView.xib; sourceTree = "<group>"; };
+		CC9AC4441C032EAC00D525FA /* StatusSectionFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusSectionFooterView.h; sourceTree = "<group>"; };
+		CC9AC4451C032EAC00D525FA /* StatusSectionFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusSectionFooterView.m; sourceTree = "<group>"; };
+		CC9AC4471C03439800D525FA /* StatusDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusDetailVC.h; sourceTree = "<group>"; };
+		CC9AC4481C03439800D525FA /* StatusDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusDetailVC.m; sourceTree = "<group>"; };
 		CCE8AF191BFABE2600C08FA2 /* NSDateFormatter+StatusDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+StatusDate.h"; sourceTree = "<group>"; };
 		CCE8AF1A1BFABE2600C08FA2 /* NSDateFormatter+StatusDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+StatusDate.m"; sourceTree = "<group>"; };
 		CCE8AF1C1BFAC0A700C08FA2 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
@@ -411,6 +419,8 @@
 			children = (
 				CC76033C1BFA02850053E406 /* HomeVC.h */,
 				CC76033D1BFA02850053E406 /* HomeVC.m */,
+				CC9AC4471C03439800D525FA /* StatusDetailVC.h */,
+				CC9AC4481C03439800D525FA /* StatusDetailVC.m */,
 			);
 			name = HomeVC;
 			sourceTree = "<group>";
@@ -422,6 +432,9 @@
 				CC2C97081BF0314D004DF239 /* LaunchScreen.xib */,
 				CC7603351BFA00ED0053E406 /* StatusTableViewCell.h */,
 				CC7603361BFA00ED0053E406 /* StatusTableViewCell.m */,
+				CC9AC4421C031A5000D525FA /* StatusSectionFooterView.xib */,
+				CC9AC4441C032EAC00D525FA /* StatusSectionFooterView.h */,
+				CC9AC4451C032EAC00D525FA /* StatusSectionFooterView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -564,6 +577,7 @@
 				CC750C6E1BFDF98B007B5940 /* status.db in Resources */,
 				CC2C970A1BF0314D004DF239 /* LaunchScreen.xib in Resources */,
 				CC2C97071BF0314D004DF239 /* Images.xcassets in Resources */,
+				CC9AC4431C031A5000D525FA /* StatusSectionFooterView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,6 +622,7 @@
 				CC5E41EB1BF4B8780079C0A3 /* NSString+DocumentFilePath.m in Sources */,
 				CC026A461BFEBE2200423AE8 /* SDBrowserImageView.m in Sources */,
 				CC026A481BFEBE2200423AE8 /* SDWaitingView.m in Sources */,
+				CC9AC4461C032EAC00D525FA /* StatusSectionFooterView.m in Sources */,
 				CC76032E1BF9FA4C0053E406 /* UIImage+MultiFormat.m in Sources */,
 				CC7603291BF9FA4C0053E406 /* SDWebImageDownloaderOperation.m in Sources */,
 				CC5E41DD1BF440110079C0A3 /* MainVC.m in Sources */,
@@ -622,6 +637,7 @@
 				CC5E42121BF4CD5C0079C0A3 /* AFURLResponseSerialization.m in Sources */,
 				CC5E41F21BF4C85D0079C0A3 /* discoverVC.m in Sources */,
 				CC2C96FC1BF0314D004DF239 /* main.m in Sources */,
+				CC9AC4491C03439800D525FA /* StatusDetailVC.m in Sources */,
 				CC7603271BF9FA4C0053E406 /* SDWebImageDecoder.m in Sources */,
 				CC5E42111BF4CD5C0079C0A3 /* AFURLRequestSerialization.m in Sources */,
 				CC5E420E1BF4CD5C0079C0A3 /* AFNetworkReachabilityManager.m in Sources */,
