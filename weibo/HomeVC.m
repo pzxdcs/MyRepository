@@ -233,7 +233,7 @@
     
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == self.statuses.count-1) {
+    if (indexPath.section == self.statuses.count-1) {
         [self reloadMore];
     }
 }
@@ -301,14 +301,20 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    StatusModel *status = self.statuses[indexPath.section];
+    UIViewController *VC = segue.destinationViewController;
+    [VC setValue:status forKey:@"_statusModel"];
+    
+    
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
 
 @end

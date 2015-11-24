@@ -67,6 +67,10 @@
 		CCE8AF1E1BFAC0A700C08FA2 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE8AF1D1BFAC0A700C08FA2 /* UserModel.m */; };
 		CCE8AF211BFAC0E100C08FA2 /* DataBaseEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE8AF201BFAC0E100C08FA2 /* DataBaseEngine.m */; };
 		CCEE70881BF0850200DFD65D /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEE70871BF0850200DFD65D /* GuideViewController.m */; };
+		CCF852DA1C04024F009F47AF /* StatusDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF852D91C04024F009F47AF /* StatusDetailCell.m */; };
+		CCF852DD1C0415DC009F47AF /* StatusDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF852DC1C0415DC009F47AF /* StatusDetailHeaderView.m */; };
+		CCF852DF1C0415F1009F47AF /* StatusDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF852DE1C0415F1009F47AF /* StatusDetailHeaderView.xib */; };
+		CCF852E31C043E59009F47AF /* sendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF852E21C043E59009F47AF /* sendVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +205,13 @@
 		CCE8AF201BFAC0E100C08FA2 /* DataBaseEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseEngine.m; sourceTree = "<group>"; };
 		CCEE70861BF0850200DFD65D /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
 		CCEE70871BF0850200DFD65D /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
+		CCF852D81C04024F009F47AF /* StatusDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusDetailCell.h; sourceTree = "<group>"; };
+		CCF852D91C04024F009F47AF /* StatusDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusDetailCell.m; sourceTree = "<group>"; };
+		CCF852DB1C0415DC009F47AF /* StatusDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusDetailHeaderView.h; sourceTree = "<group>"; };
+		CCF852DC1C0415DC009F47AF /* StatusDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusDetailHeaderView.m; sourceTree = "<group>"; };
+		CCF852DE1C0415F1009F47AF /* StatusDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusDetailHeaderView.xib; sourceTree = "<group>"; };
+		CCF852E11C043E59009F47AF /* sendVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sendVC.h; sourceTree = "<group>"; };
+		CCF852E21C043E59009F47AF /* sendVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sendVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -435,6 +446,11 @@
 				CC9AC4421C031A5000D525FA /* StatusSectionFooterView.xib */,
 				CC9AC4441C032EAC00D525FA /* StatusSectionFooterView.h */,
 				CC9AC4451C032EAC00D525FA /* StatusSectionFooterView.m */,
+				CCF852D81C04024F009F47AF /* StatusDetailCell.h */,
+				CCF852D91C04024F009F47AF /* StatusDetailCell.m */,
+				CCF852DB1C0415DC009F47AF /* StatusDetailHeaderView.h */,
+				CCF852DC1C0415DC009F47AF /* StatusDetailHeaderView.m */,
+				CCF852DE1C0415F1009F47AF /* StatusDetailHeaderView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -458,6 +474,7 @@
 		CCEE70841BF0838800DFD65D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CCF852E01C043E1F009F47AF /* send */,
 				CC5E41F31BF4CC9B0079C0A3 /* loginVC */,
 				CC5E41EF1BF4C8360079C0A3 /* discover */,
 				CC5E41DE1BF4B41A0079C0A3 /* SetingVC */,
@@ -491,6 +508,15 @@
 				CC026A4C1BFF592300423AE8 /* UINavigationController+notification.m */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		CCF852E01C043E1F009F47AF /* send */ = {
+			isa = PBXGroup;
+			children = (
+				CCF852E11C043E59009F47AF /* sendVC.h */,
+				CCF852E21C043E59009F47AF /* sendVC.m */,
+			);
+			name = send;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -573,6 +599,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCF852DF1C0415F1009F47AF /* StatusDetailHeaderView.xib in Resources */,
 				CC2C97051BF0314D004DF239 /* Main.storyboard in Resources */,
 				CC750C6E1BFDF98B007B5940 /* status.db in Resources */,
 				CC2C970A1BF0314D004DF239 /* LaunchScreen.xib in Resources */,
@@ -609,6 +636,7 @@
 				CC5E41EE1BF4C3110079C0A3 /* UITableView+IndexWithIndexPath.m in Sources */,
 				CC7603411BFA0A3B0053E406 /* StatusModel.m in Sources */,
 				CC026A4D1BFF592300423AE8 /* UINavigationController+notification.m in Sources */,
+				CCF852E31C043E59009F47AF /* sendVC.m in Sources */,
 				CC7603261BF9FA4C0053E406 /* SDWebImageCompat.m in Sources */,
 				CC7602FE1BF9FA230053E406 /* FMDatabasePool.m in Sources */,
 				CC7603001BF9FA230053E406 /* FMResultSet.m in Sources */,
@@ -629,6 +657,7 @@
 				CC7603301BF9FA4C0053E406 /* UIImageView+HighlightedWebCache.m in Sources */,
 				CCE8AF1E1BFAC0A700C08FA2 /* UserModel.m in Sources */,
 				CC5E41E41BF4B46E0079C0A3 /* SetingVC.m in Sources */,
+				CCF852DA1C04024F009F47AF /* StatusDetailCell.m in Sources */,
 				CC7602FF1BF9FA230053E406 /* FMDatabaseQueue.m in Sources */,
 				CC5E41E81BF4B6020079C0A3 /* Account.m in Sources */,
 				CC5E42131BF4CD5C0079C0A3 /* AFURLSessionManager.m in Sources */,
@@ -638,6 +667,7 @@
 				CC5E41F21BF4C85D0079C0A3 /* discoverVC.m in Sources */,
 				CC2C96FC1BF0314D004DF239 /* main.m in Sources */,
 				CC9AC4491C03439800D525FA /* StatusDetailVC.m in Sources */,
+				CCF852DD1C0415DC009F47AF /* StatusDetailHeaderView.m in Sources */,
 				CC7603271BF9FA4C0053E406 /* SDWebImageDecoder.m in Sources */,
 				CC5E42111BF4CD5C0079C0A3 /* AFURLRequestSerialization.m in Sources */,
 				CC5E420E1BF4CD5C0079C0A3 /* AFNetworkReachabilityManager.m in Sources */,

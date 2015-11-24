@@ -24,6 +24,6 @@
 
 
 
--(void)bindingStatusModel:(NSDictionary *)info;
+-(void)bindingStatusModel:(StatusModel *)info;
 +(CGFloat)cellHeightForStatus:(StatusModel *)status;
 @end

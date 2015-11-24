@@ -57,7 +57,9 @@
     [addBtn addTarget:self action:@selector(compose:) forControlEvents:UIControlEventTouchDown];
 }
 -(void)compose:(UIButton *)btn{
-    NSLog(@"zxc");                                   
+    //弹出发微博界面
+    UIViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"send"];
+    [self presentViewController:VC animated:YES completion:nil];
 }
 
 -(void)logout:(NSNotification *)notification{

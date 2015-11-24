@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef enum : NSUInteger {
+    kComment,
+    kRetwitter,
+    kLike,
+} StatusDetailCellType;
+@class StatusModel;
+@class StatusDetailHeaderView;
 
-@interface Status_DetailVC : UITableViewController
+@interface StatusDetailVC : UITableViewController
+
+@property(nonatomic,strong)StatusModel *statusModel;
+@property (nonatomic)StatusDetailCellType type;//默认选择comment
 
 @end
