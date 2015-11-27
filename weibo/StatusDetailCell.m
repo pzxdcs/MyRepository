@@ -36,7 +36,7 @@
 -(void)bindingRetwitter:(StatusModel *)status{
     [self.icon sd_setImageWithURL:[NSURL URLWithString:status.user.profile_image_url]];
     self.name.text = status.user.name;
-    self.time = [NSDateFormatter localizedStringFromDate:status.created_at dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
+    self.time.text = [NSDateFormatter localizedStringFromDate:status.created_at dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
     self.comment.text = status.text;
 }
 +(CGFloat)cellHeightForComment:(NSDictionary *)comment{

@@ -58,7 +58,8 @@
 }
 -(void)compose:(UIButton *)btn{
     //弹出发微博界面
-    UIViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"send"];
+    UIViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"moreVC"];
+    VC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:VC animated:YES completion:nil];
 }
 

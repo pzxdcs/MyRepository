@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>8B59CFEACB0077F18C72CF6008745F647815DD62</key>
-		<string>ssh://192.168.0.73/Users/qingyun/Desktop/1507%E7%8F%AD/service</string>
+		<string>github.com:pzxdcs/MyRepository.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>weibo.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://192.168.0.73/Users/qingyun/Desktop/1507%E7%8F%AD/service</string>
+	<string>github.com:pzxdcs/MyRepository.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

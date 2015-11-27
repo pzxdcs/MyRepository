@@ -8,8 +8,7 @@
 
 #import "GuideViewController.h"
 #import "AppDelegate.h"
-#define w  [UIScreen mainScreen].bounds.size.width
-#define h  [UIScreen mainScreen].bounds.size.height
+
 
 @interface GuideViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -21,12 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.scrollView.contentSize = CGSizeMake(4*w, h);
+    // Do any additional setup after loading the view.
+    CGRect frame = [[UIScreen mainScreen] bounds];
+    self.scrollView.contentSize = CGSizeMake(frame.size.width * 4 , frame.size.height);
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.delegate = self;
-    // Do any additional setup after loading the view.
 }
 - (IBAction)guideButton:(UIButton *)sender {
     AppDelegate *delegate = [[UIApplication sharedApplication]delegate];
@@ -39,14 +39,17 @@
 }
 #pragma mark - ScrollView delegate
 
--(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     if (!decelerate) {
-        self.PageController.currentPage = self.scrollView.contentOffset.x/w;
+        //不减速，则是scrollView滚动结束,设置选择到第几页
+        self.PageController.currentPage = self.scrollView.contentOffset.x/375;
+        
     }
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    self.PageController.currentPage = self.scrollView.contentOffset.x/w;
+    //减速结束，就意味着scrollView滚动结束,设置滚到到第几页
+    self.PageController.currentPage = self.scrollView.contentOffset.x / [UIScreen mainScreen].bounds.size.width;
 }
 
 /*

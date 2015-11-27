@@ -14,6 +14,7 @@
 -(void)awakeFromNib{
     self.backgroundView = [[UIView alloc]init];
     self.backgroundView.backgroundColor = [UIColor whiteColor];
+
 }
 
 -(void)bindingStatus:(StatusModel *)status{

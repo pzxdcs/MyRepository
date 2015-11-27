@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     [self loadData];
     self.tabBarController.tabBar.backgroundColor =  [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -50,7 +51,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self loadData];
+   
 }
 
 #pragma mark - load data
@@ -85,7 +86,7 @@
         //保存到数据库中
         [DataBaseEngine saveStatus2DataBase:statusesInfo];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", error);
+        NSLog(@"=====%@", error);
     }];
     
     

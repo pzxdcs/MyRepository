@@ -13,6 +13,7 @@
 -(void)awakeFromNib{
     self.backgroundView = [[UIView alloc]init];
     self.backgroundView.backgroundColor = [UIColor whiteColor];
+
 }
 -(void)bindingStatus:(StatusModel *)status{
     [self.reTwiter setTitle:status.repost_count.stringValue forState:UIControlStateNormal];

@@ -66,7 +66,7 @@ static NSArray *statusTableColumns;
             //跟table column比较，得出交集
             NSArray *containtKeys = [DataBaseEngine copare:allKey SecondArray:statusTableColumns];
             //生成sql语句
-            NSString *sqlString = [DataBaseEngine createdSqlString:containtKeys];
+            //NSString *sqlString = [DataBaseEngine createdSqlString:containtKeys];
             //生成只包含交集key的字典
             NSMutableDictionary *resultDic = [NSMutableDictionary dictionary];
             [containtKeys enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -81,7 +81,7 @@ static NSArray *statusTableColumns;
                 [resultDic setObject:value forKey:obj];
             }];
             //执行插入
-            BOOL result = [db executeUpdate:sqlString withParameterDictionary:resultDic];
+           // BOOL result = [db executeUpdate:sqlString withParameterDictionary:resultDic];
         }];
     }];
 }
